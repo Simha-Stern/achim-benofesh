@@ -7,7 +7,7 @@ const count = ref(0)
 const messages = ref<string[]>([]);
 
 onMounted(async () => {
-  const response = await fetch('./src/assets/messages.json');
+  const response = await fetch('./public/messages.json');
   const data = await response.json();
   messages.value = data;
 });
