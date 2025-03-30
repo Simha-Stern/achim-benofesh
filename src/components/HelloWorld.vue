@@ -1,21 +1,22 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
+import { messages } from './messages';
 
 defineProps<{ msg: string }>()
 
 const count = ref(0)
-const messages = ref<string[]>([]);
+const messagesRef = ref<string[]>(messages);
 
-onMounted(async () => {
-  const response = await fetch('./public/messages.json');
-  const data = await response.json();
-  messages.value = data;
-});
+// onMounted(async () => {
+//   const response = await fetch('./public/messages.json');
+//   const data = await response.json();
+//   messages.value = data;
+// });
 
-const currentMessage = computed(() => messages.value[count.value]);
+const currentMessage = computed(() => messagesRef.value[count.value]);
 
 const nextMessage = () => {
-  count.value = (count.value + 1) % messages.value.length;
+  count.value = (count.value + 1) % messagesRef.value.length;
 };
 </script>
 
@@ -36,7 +37,6 @@ const nextMessage = () => {
 </template>
 
 <style scoped>
-
 .dialog {
   height: 85vh;
   width: 90vw;
@@ -81,6 +81,4 @@ const nextMessage = () => {
 .button:focus {
   outline: none;
 }
-
-
 </style>
