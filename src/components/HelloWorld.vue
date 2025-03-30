@@ -73,4 +73,14 @@ const nextMessage = () => {
   color: #FF9C73;
   border-color: #FF9C73;
 }
+
+.button:active {
+  transform: scale(0.95);
+}
+
+.button:focus {
+  outline: none;
+}
+
+
 </style>
