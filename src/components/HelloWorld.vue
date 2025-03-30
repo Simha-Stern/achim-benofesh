@@ -48,6 +48,7 @@ const nextMessage = () => {
 
 .text {
   color: #FAB12F;
+  /* border-color: #170f02; */
   font-size: 20px;
   text-align: center;
   margin-bottom: 20px;
